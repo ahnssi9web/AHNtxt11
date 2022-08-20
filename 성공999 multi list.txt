@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+    </style>
+</head>
+
+
+<body>
+
+<audio preload="none">
+</audio>
+
+
+
+
+<audio id="audio1">
+<source src="https://ahnssi9web.github.io/AHNSONG/내음악/강촌사람들 - 잊지는 말아야지.mp3"/>
+</audio>
+
+<button id="play">Play111</button>
+<button id="stop">Stop111</button>
+<button id='next'> 곡 선택 후 엔터</button>
+<script>
+	    var audio_info = document.getElementById('audio1');
+    document.getElementById('play').addEventListener('click', function(){
+        audio_info.play();
+    }, false);
+//
+    document.getElementById('stop').addEventListener('click', function(){
+        audio_info.pause();
+    }, false);
+//
+	document.getElementById('play').addEventListener('ended', function(){
+       AHNnextPlay();
+    }, false);
+</script>
+
+<script>
+    function AHNnextPlay() {
+		// Playlist array
+		var files = [
+		 "https://ahnssi9web.github.io/AHNSONG/내음악/강촌사람들 - 잊지는 말아야지.mp3",
+		 "https://ahnssi9web.github.io/AHNSONG/내음악/강촌사람들 - 저별과달을.mp3",
+		 "https://ahnssi9web.github.io/AHNSONG/내음악/강촌사람들 - 하얀 면사포.mp3"
+		];
+
+		// Current index of the files array
+		var i = 0;
+			// Check for last audio file in the playlist
+		if (i === files.length - 1) {
+			i = 0;
+		} else {
+			i++;
+		}
+		// Change the audio element source
+		//  music_player.src = files[i];
+        audio.src = files[i];		
+        name.innerHTML = 'files 연주곡 : '+audio.src;
+    }
+</script>
+<audio class='audio' src="https://ahnssi9web.github.io/AHNSONG/내음악/강촌사람들 - 저별과달을.mp3" autoplay controls></audio>
+<hr>
+<select id='audio' size='20'>
+    <option value="https://ahnssi9web.github.io/AHNSONG/내음악/강촌사람들 - 잊지는 말아야지.mp3">잊지는</option>
+    <option value="https://ahnssi9web.github.io/AHNSONG/내음악/강촌사람들 - 저별과달을.mp3">저별과달을</option>
+    <option value="https://ahnssi9web.github.io/AHNSONG/내음악/강촌사람들 - 하얀 면사포.mp3">면사포</option>
+</select>
+<button id='next'> 곡 선택 후 엔터</button>
+
+<p id='name'> 현재 연주되는 곡명이 보입니다. </p>
+
+<script>
+    let audio = document.querySelector('.audio');
+    let select = document.getElementById('audio');
+    let next = document.getElementById('next');
+    let name = document.getElementById('name');
+
+    let num = 0;
+    let src = [
+	"https://ahnssi9web.github.io/AHNSONG/내음악/강촌사람들 - 잊지는 말아야지.mp3", 
+	"https://ahnssi9web.github.io/AHNSONG/내음악/강촌사람들 - 저별과달을.mp3", 
+	"https://ahnssi9web.github.io/AHNSONG/내음악/강촌사람들 - 하얀 면사포.mp3"
+
+	]; //곡 이름 순서대로 저장
+    
+    
+    next.addEventListener('click', next_click); //next 버튼 클릭시 실행
+    audio.addEventListener('ended', nextPlay);  //곡이 끝날때 실행
+
+
+
+    function next_click() {
+        audio.pause();                      //기존 진행 된 곡 정지
+        if (select.options[select.selectedIndex] == undefined)  // 선택을 하지않고 눌렀다면 오류 언급
+		            alert('원하는 곡을 선택 후 클릭하세요')
+		else {                          //새로운 곡 선택 후 play 경우
+            audio.src = select.options[(select.selectedIndex + 0) % src.length].value;
+            audio.play();
+            name.innerHTML = '연주곡 : '+select.options[(select.selectedIndex + 0) % src.length].value
+        }
+    }
+
+    function nextPlay() {
+		// Playlist array
+		var files = [
+		 "https://ahnssi9web.github.io/AHNSONG/내음악/강촌사람들 - 잊지는 말아야지.mp3",
+		 "https://ahnssi9web.github.io/AHNSONG/내음악/강촌사람들 - 저별과달을.mp3",
+		 "https://ahnssi9web.github.io/AHNSONG/내음악/강촌사람들 - 하얀 면사포.mp3"
+		];
+
+		// Current index of the files array
+		var i = 0;
+			// Check for last audio file in the playlist
+		if (i === files.length - 1) {
+			i = 0;
+		} else {
+			i++;
+		}
+		// Change the audio element source
+		//  music_player.src = files[i];
+        audio.src = files[i];
+        name.innerHTML = 'files 연주곡 : '+audio.src;
+    }
+</script>
+
+</body>
+</html>
