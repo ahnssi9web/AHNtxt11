@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+    </style>
+</head>
+
+
+<body>
+
+
+<div id="video_list">
+    <video controls autoplay width="400px" height="400px"></video>
+</div>
+
+    <span><input   type="number" id="guess1" value=39></span>
+    <input type="button" onclick="Calculate()" value="확인">
+
+    <script>
+		function Calculate() {
+			var GuessCon1 = document.getElementById("guess1").value;
+			ahnno = GuessCon1;
+	}
+	</script>
+		
+
+<p>
+<button id="play"> 계속 듣기</button>
+<button id="random"> 임의대로 재생 </button>
+<button id="next"> 장사익0-1 백낙청2-3 ahn45깨꼬닥5-   ahn44이등병612- 끝 강아지체조2118-83=2035  </button>
+</p>
+	
+
+<p id='name'> 현재 연주되는 곡명이 보입니다. </p>
+<p id="text"> ahn --->> 연주곡 간신히 찾았다. </p>	
+<p id="text2"> ahnno -->> 연주곡 번호 </p>	
+
+<script>
+			document.getElementById('play').addEventListener('click', function(){
+				playvideo();
+			}, false);
+		//
+			document.getElementById('random').addEventListener('click', function(){
+				randomvideo();
+			}, false);			
+		//
+			document.getElementById('next').addEventListener('click', function(){
+				nextvideo();
+			}, false);
+</script>
+
+
+<script>
+		// Playlist array
+			var files = [
+
+
+
+				"https://ahnssi9web.github.io/AHNSONG/내음악/장사익 - 어머니 꽃구경 2008 (HQ audio) - YouTube (360p).mp4",		
+				"https://ahnssi9web.github.io/AHNSONG/내음악/장사익 - 뜨거운 침묵 - YouTube (360p).mp4",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/Gummy - 죽어도 사랑해 (Love You Even If I Die) [Han & Eng].mp4",			
+				"https://ahnssi9web.github.io/web1/500마무리/2022-03-09 윤석열/백낙청 교수 우리가 어쩌다 K-트럼프를 만들었나.mp4",  			                            
+			 "https://ahnssi9web.github.io/ahn88/트럼프를 한 대 때린 남자.mp4"					
+				
+				
+				];
+
+		// Get the audio element
+		//	let _video = document.querySelector('#video_list video');
+		//var _video = document.getElementById('video_list');
+		// Get the audio element
+			let _video = document.querySelector('#video_list video');
+
+</script>
+
+
+
+<script>
+
+		function playvideo() {
+
+			_video.src = files[ahnno]; // 다른 미디어로 소스 변경
+			_video.addEventListener('ended', playvideo, false)
+						
+				
+			var str = document.getElementById("text");
+			str.innerHTML = files[ahnno];
+
+			var str2 = document.getElementById("text2");
+			str2.innerHTML = ahnno;					
+		}
+
+
+
+
+		function nextvideo() {
+			// Check for last audio file in the playlist
+			if (ahnno === files.length - 1) {
+				ahnno= 0;
+			} else {
+				ahnno++;
+			}
+			_video.src = files[ahnno]; // 다른 미디어로 소스 변경
+			_video.addEventListener('ended', nextvideo, false)
+			
+			var str = document.getElementById("text");
+			str.innerHTML = files[ahnno];
+
+			var str2 = document.getElementById("text2");
+			str2.innerHTML = ahnno;					
+		}
+
+
+
+
+
+		function randomvideo() {
+		
+			ahnno = Math.floor(Math.random() * files.length);
+			
+			if (ahnno === files.length - 1) {
+				ahnno= 0;
+			} 
+			
+			_video.src = files[ahnno]; // 다른 미디어로 소스 변경
+			_video.addEventListener('ended', randomvideo, false)
+			
+			var str = document.getElementById("text");
+			str.innerHTML = files[ahnno];
+
+			var str2 = document.getElementById("text2");
+			str2.innerHTML = ahnno;					
+		}
+
+
+</script>
+
+</body>
+</html>
