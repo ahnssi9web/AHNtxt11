@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+<head>
+     <title> github 404 error 대책 </title>   
+ 	<meta charset="utf-8"/>
+	<link rel="icon" type="image/png" href="http://example.com/myicon.png"> 
+	<style>
+	   	img {
+		  	padding: 5px;
+		  	width: 300px;
+		  	height : 300px;  
+	   
+		  	border: 1px  dotted #ddd;
+  			border-width: 10px 4px;
+  			border-radius: 10px 40px; 
+	       	}
+	</style>
+</head>
+
+<body>
+
+		**** 주의사항 1 :  파일명은 공란이 없도록 한다.  방배동 코로나 --> 방배동_코로나
+		**** 주의사항 2 :  파일명에 [강추]가 들어가면 곤란하다 {이 문제
+		**** 주의사항 3 : <img>에는 alt="error"만 추가한다. 
+      		<img src="https://ahnssi9web.github.io/web1/000우린하나/2022-04-01 코로나검사/방배동 코로나 대책.png" alt="error"> </img> 
+      		<img src="https://ahnssi9web.github.io/web1/000우린하나/2022-04-01 코로나검사/코로나19 증상 콧물.jpg" alt="error">  </img>
+
+		**** 주의사항 4 :   target="ahn23"을 사용한다.  target="_top"을 쓰면 새로운 창이 열린다. 보기에 나쁘다.
+      		<li><a href="https://ahnssi9web.github.io/web1/90이면 이미 몸이 고장난다.jpg" target="ahn23"> 90이면 이미 몸이 고장난다 </a></li><br>	
+      		<li><a href="https://ahnssi9web.github.io/web1/000우린하나/002이제야알았네/윤석열 지지 의미.jpg" target="ahn23">윤석열 지지 의미.jpg </a></li><br>
+
+		**** 주의사항 5 :  <video>에는 width type 등을 없앤다. 
+ 		**** 주의사항 6 :  <video>는 <li><a ...문장으로 내용을 알려주고 <video...문법으로 자동으로 나오게 하면 좋다.
+      		<li><a href="https://ahnssi9web.github.io/web1/500마무리/2022-03-19 준상 생일/KakaoTalk_20220319_153602467.mp4"> 153602467.mp4 </a></li><br>
+      		<li><a href="https://ahnssi9web.github.io/web1/500마무리/2022-03-19 준상 생일/KakaoTalk_20220319_162801643.mp4"> 162801643.mp4 </a></li><br>
+		<br><br>
+      		<video controls  src="https://ahnssi9web.github.io/web1/500마무리/2022-03-19 준상 생일/KakaoTalk_20220319_153602467.mp4"></video><br><br>
+      		<video controls  src="https://ahnssi9web.github.io/web1/500마무리/2022-03-19 준상 생일/KakaoTalk_20220319_162801643.mp4"></video><br><br>
+
+</body>
+</html>

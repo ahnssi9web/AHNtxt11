@@ -1,0 +1,9 @@
+
+
+private boolean nameAlreadyExists(String name) {
+    for (DownloadVideo video : downloads) {
+        if (video.name.equals(name))
+            return true;
+    }
+    return false;
+}

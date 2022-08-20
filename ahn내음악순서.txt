@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+    </style>
+</head>
+
+
+<body>
+
+<audio id="audio1">
+<source src="https://ahnssi9web.github.io/AHNSONG/내음악/최희준 - 나는곰이다.mp3"/>
+</audio>
+
+<audio id="audio2" controls>
+    <source src="https://ahnssi9web.github.io/AHNSONG/내음악/즐거운인생 12 한동안 뜸했었지 - 활화산.mp3" />
+</audio>
+<p>
+<button id="play"> 애창곡 듣기</button>
+<button id="stop"> 애창곡 멈춤 </button>
+</p>
+<div id="music_list">
+    <audio controls autoplay></audio>
+</div>
+
+    <span><input   placeholder=" 시작번호 : "  type="number" id="guess1"><p id="g1s"></p></span>
+    <input type="button" onclick="Calculate()" value="Calculate">
+
+    <script>
+		function Calculate() {
+			var GuessCon1 = document.getElementById("guess1").value;
+			ahnno = GuessCon1;
+			//var GuessCon1sub = GuessCon1 - 500;
+			//document.getElementById("g1s").innerHTML = GuessCon1sub;
+	}
+	</script>
+	
+
+<button id="next"> 왜불러16  김광석43 김민기81 포크100 노찾사140 송창식203 양희은238 윤도현266 임재범309 장사익320 조용필336  </button>
+
+<script>
+		var audio_info = document.getElementById('audio1');
+			document.getElementById('play').addEventListener('click', function(){
+				audio_info.play();
+			}, false);
+		//
+			document.getElementById('stop').addEventListener('click', function(){
+				audio_info.pause();
+			}, false);
+			
+		//
+			document.getElementById('next').addEventListener('click', function(){
+				ahnmusic();
+			}, false);
+</script>
+
+
+<script>
+	//JS part
+    var audio_info = document.getElementById('audio2');
+    audio_info.addEventListener('playing', function(e){
+        console.log('Audio playback has started ...');
+        console.log('Playback started at : '+ e.target.currentTime +" seconds");
+    }, false);
+    audio_info.addEventListener('pause', function(e){
+        console.log('Audio playback has been paused ...');
+        console.log('Playback paused at : '+ e.target.currentTime +" seconds");
+    }, false);
+
+    audio_info.addEventListener('ended', function(e){
+        console.log('Playback has ended');
+    }, false);
+    audio_info.addEventListener('volumechange', function(e){
+        console.log("Volume has changed ...");
+        console.log("Volume is now "+ e.target.volume);
+    }, false);
+	
+</script>
+<script>
+		function ahnmusic() {
+		// Playlist array
+		var files = [
+				"https://ahnssi9web.github.io/AHNSONG/내음악/2AM - 죽어도 못 보내.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/4minutes - 안 줄래.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/8Eight - 이현 - 30분 전 (feat. 임정희).mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/10cm - 여자는 왜 화를 내는 걸까.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/abba-Dancing Queen.mid.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/abba-I Have a Dream.mid.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/abba-Thank You For The Music.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/Bohemian Rhapsody - queen.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/Day break - 03-들었다 놨다.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/Honey Honey - abba.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/J에게-이선희.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/Let It Be.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/Mamma Mia - abba.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/My Way - Frank Sinatra.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/Some body to love - queen.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/Waterloo - abba.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/We Are The Champions - queen.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/갈대의순정-박일남.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/강원도아리랑.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/강촌사람들 - 나그대에게모두드리리.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/강촌사람들 - 잊지는 말아야지.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/강촌사람들 - 저별과달을.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/강촌사람들 - 하얀 면사포.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/강촌에살고싶네-나훈아.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/개똥벌레.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/거리에서-김광석.MID.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/겨울비.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/고래사냥.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/광야에서-안치환.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/교실 이데아.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/국악 - 박동진-화초장타령,놀보가 제비후리러 가는대목.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/국악 - 이성원-진주난봉가.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/권혜경 - 산장의여인.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/그것만이 내세상 - 들국화.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/그대는 나의인생 - 한울타리.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/그때그사람.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/그땐그랬지-카니발.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김거지 - 02-하얀손.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김거지 - 03-독백.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김거지 - 03-외롭다고 노래를 부르네.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김거지 - 04-오늘같은 밤은 다신 없었으면 해.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김거지 - 05-길을 잃다.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김광민 - 학교가는 길.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김광석 - 거리에서.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김광석 - 광야에서(고음질320).mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김광석 - 그건너의자신을사랑하지않는.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김광석 - 그녀가 처음 울던 날.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김광석 - 그루터기.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김광석 - 나무(산책OST).mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김광석 - 너무 깊이 생각하지마.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김광석 - 너무아픈사랑은사랑이아니었.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김광석 - 너에게.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김광석 - 널사랑하겠어.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김광석 - 녹두꽃『M.H On Air』.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김광석 - 두바퀴로 가는 자동차[1].mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김광석 - 말하지 못하는 내사랑.MP3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김광석 - 먼지가되어.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김광석 - 바람이 불어오는 곳.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김광석 - 변해가네.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김광석 - 사랑이라는 이유로.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김광석 - 사랑했지만.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김광석 - 서른 즈음에.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김광석 - 슬픈우연.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김광석 - 외사랑.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김광석 - 잊어야한다는 마음으로.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김광석 - 지금은우리가멀리있을지라도.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김광석 - 흐린가을하늘에편지를써.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김광진 - 편지.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김도향 - 바보처럼 살았군요.MP3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김동률 - 05-그땐 그랬지(Feat. 이적).mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김동률- 05-아이처럼.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김동률 - 18-사랑한다는 말.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김동률 - 19-다시 사랑한다 말할까.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김동률 - 감사.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김동률 - 고독한 항해 (Studio Ver.).mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김동률 - 오래된 노래.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김동률 - 욕심쟁이 (Featuring 이소은).mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김동률 - 이소은-기적.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김동률 - 잔향 -.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김동률 - 출발.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김동률 - 취중진담.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김민기 - 강변에서.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김민기 - 금관의예수.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김민기 - 상록수.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김민기 - 아름다운 사람.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김민기 - 아침이슬.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김민기 - 작은연못.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김민기 - 천리길.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김민기 - 친구 (1971년원본).mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김민기 - 타는목마름으로.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김민식 - 아름다운 나의 사람아.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김세레나 - 잘했군잘했어.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/2AM - 죽어도 못 보내.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/4minutes - 안 줄래.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/8Eight - 이현 - 30분 전 (feat. 임정희).mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/10cm - 여자는 왜 화를 내는 걸까.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/ABBA - DOES YOUR MOTHER KNOW.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/ABBA - I Am Just A Girl.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/ABBA - 세친구 삽입곡~허니허니.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/ABBA - 원썸머나잇.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김세환 - 과수원 길.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김세환 - 길가에앉아서.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김세환 - 목장길따라.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김세환 - 별이 빛나는 밤에.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김세환 - 비.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김세환 - 사랑하는 마음.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김세환 - 아름다운 사람.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김세환 - 왜 그런지.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김세환 - 이거야 정말.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김세환 - 좋은걸 어떡해.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김수철 - 젊은그대(월드컵응원단).mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김영동 - 봄비에게 -가야금.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김종서 - 겨울비.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김종서 - 부활 - 회상 플라스틱 신드롬 새가 되어 가리.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김종서 - 창밖의 여자 몰입도 최고.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김종서 - 플라스틱 신드롬.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김종서-투빅-플라스틱 신드롬 (복면가왕).mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김추자 - 거짓말이야.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김추자 - 기다리게 해놓고 .mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김추자 - 눈이 내리네.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김추자 - 늦기전에.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김추자 - 님아.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김추자 - 님은먼곳에.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김추자 - 봄비.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김추자 - 상아의 노래.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김추자 - 어떻게 할까 .mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김추자 - 왜아니올까.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김추자 - 진정 난 몰랐네.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김추자 - 커피한잔.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김태우 - 사랑비.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/꽃다지 - 사람이꽃보다아름다워.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/꽃다지 - 함께가자 우리이길을.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/꿈에본내고향.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/난알아요.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/난정말몰랐었네-최병걸.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/남자는배여자는항구.mid.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/낭만 고양이 - 체리필터.mid.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/내님의사랑은-양희은.mid.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/너에게난나에게넌-자전거탄풍경.mid.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/노브레인-더위먹은갈매기.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/노찾사 - 백두에서한라 한라에서백두.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/노찾사 - 빼앗긴 들에도 봄은 오는가.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/노찾사 - 사노라면(통기타).mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/노찾사 - 솔아솔아푸르른솔아.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/노찾사 - 얼굴찌푸리지말아요.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/노찾사 - 오월의노래.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/노찾사 - 잠들지 않는 남도.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/노찾사 - 진달래.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/노찾사 - 타는 목마름으로.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/노찾사 - 희망가.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/누가울어.mid.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/눈물젖은 두만강 - 김정구.mid.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/눈이내리네-김추자.mid.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/님과함께-남진.mid.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/다시 만나줘-업타운.mid.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/다시 사랑한다 말할까 - 김동률.MID.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/다이나믹 듀오 - 01-미안해.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/단발머리.mid.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/돌아와요부산항에 - 조용필.mid.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/두 바퀴로 가는 자동차 - 김광석.mid.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/둘다섯 - 토요일밤에.연가.길가에앉아서.언덕에올라(Live).mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/라구요-강산에.mid.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/리쌍 - 02-우리 지금 만나 (Feat. 장기하와 얼굴들).mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/리쌍 - 05-변해가네 (Feat. 정인).mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/리쌍 - TV를 껐네 (feat. 권정열 & 윤미래).mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/리쌍 - 내가웃는게아니야.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/리쌍 - 헤어지지 못하는 여자, 떠나가지 못하는 남자 (feat. 정인).mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/말달리자-클라잉넛.mid.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/모두가사랑이예요.mid.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/못다핀꽃한송이.mid.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/민중가요 - 광야에서.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/민중가요 - 노래만큼좋은세상.MP3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/민중가요 - 단결투쟁가(꽃다지).mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/민중가요 - 동지가.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/민중가요 - 바위처럼.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/민중가요 - 박종화 - 지리산(민중가요).mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/민중가요 - 불나비.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/민중가요 - 함께가자 우리 이 길을(꽃다지).mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/박건 - 그사람이름은잊었지만.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/박상규 - 친구야 친구,포크.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/박인희 - 그리운 사람끼리..mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/박인희 - 꽃반지끼고.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/박인희 - 모닥불.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/박인희 - 목로주점.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/박인희 - 목마와숙녀.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/박인희 - 세월이가면.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/박인희 - 스카브로우의 추억.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/박인희 - 윤형주 - 사랑의 찬가.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/박인희 - 하얀 조가비.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/발해를 꿈꾸며.mid.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/백만송이장미-심수봉.mid.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/불놀이야-옥슨80.mid.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/빅뱅 - 붉은노을.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/빅뱅 - 하루하루_192.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/빈대떡신사.mid.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/사노라면-들국화.mid.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/사랑했지만 - 김광석.mid.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김세화 - 눈물로 쓴편지.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김세환 - & 윤형주 - Let It Be Me.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/김세환 - 1989 [골든 포크 제2집] 14 어느 소녀에게 바친사랑.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/소녀시대 - 소원을 말해봐 (Genie).mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/소리새 - 인생은미완성 [포크송].mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/소양강처녀.mid.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/송창식 - 고래 사냥.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/송창식 - 그대있음에.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/송창식 - 꽃보다 귀한 여인.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/송창식 - 내나라내겨레.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/송창식 - 당신은누구시길래.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/송창식 - 딩동댕 지난 여름.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/송창식 - 맨처음고백.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/송창식 - 비의 나그네.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/송창식 - 사랑이야.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/송창식 - 상아의노래(원곡).mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/송창식 - 새는.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/송창식 - 왜불러.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/송창식 - 우리는.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/송창식 - 토함산.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/송창식 - 트윈폴리오 - 축제의노래.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/송창식 - 피리부는 사나이.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/송창식 - 한번쯤.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/송창식 - 희망가.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/시인과촌장-가시나무.mid.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/신중현 - 미인.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/신효범 - 사랑하게될줄알았어.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/심수봉 - 그때 그사람.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/심수봉 - 남자는 배 여자는 항구.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/심수봉 - 당신은 누구시길래.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/심수봉 - 돌아와요 부산항에.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/심수봉 - 소양강 처녀.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/심수봉 - 젊은태양.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/십센티 - 여자는 왜 화를 내는 걸까.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/싸이 - 강남스타일.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/싸이 - 아버지.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/아옛날이여-이선희.mid.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/아이유 - 너의 의미 (Feat. 김창완).mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/아침이슬-양희은.mid.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/안되나요-휘성.mid.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/애모.mid.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/양희은 - 개똥벌레.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/양희은 - 꽃반지끼고.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/양희은 - 내님의사랑은.MP3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/양희은 - 네꿈을펄쳐라.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/양희은 - 눈을들어하늘보라.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/양희은 - 늙은 군인의 노래.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/양희은 - 들길따라서.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/양희은 - 사노라면.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/양희은 - 산장의 여인.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/양희은 - 상록수.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/양희은 - 세노야 세노야.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/양희은 - 아름다운것들.MP3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/양희은 - 아침이슬.MP3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/양희은 - 우물가에 여인처럼.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/양희은 - 이루어질수없는사랑.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/양희은 - 작은연못.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/양희은 - 저 높은 곳을 향하여.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/양희은 - 한승기-나어느날꿈속을헤매며.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/양희은 - 행복의나라로.MP3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/어니언스 - 언덕에올라 (포크송).mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/어머나-장윤정.mid.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/에이트 - 04 - 심장이 없어 - 320k.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/에이트 - 이현 - 30분 전 (feat. 임정희) (2).mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/에이트 - 이현 - 30분 전 (feat. 임정희).mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/여자이니까-심수봉.mid.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/여행을떠나요.mid.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/왜불러.mid.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/왼손잡이-패닉.mid.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/윤도현 - 돌고 돌고 돌고.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/윤도현 - 말달리자.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/윤도현 - 사랑했나봐.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/윤도현 - 월드컵송 - 붉은악마 응원가(아리랑).mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/윤수일 - 장미빛스카프.Mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/윤항기 - 나는 행복합니다.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/윤항기 - 장미빛 스카프.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/윤형주 - 김세환-우리들의이야기.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/윤형주 - 철새는 날아가고 ( 사이먼과 가펑클 El Condor Pasa) ====.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/이루어질수없는사랑.mid.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/이미자 - 댄서의 순정.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/이미자 - 동백 아가씨.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/이미자 - 목포의 눈물.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/이장희 - 그애와나랑은(포크송).mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/이장희 - 좋은걸어떻해.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/이적 - 02-그대랑.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/이적 - 02-다행이다.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/이적 - 04-비밀.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/이적 - 06-Rain.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/이적 - 06-보조개.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/이적 - 11-같이 걸을까.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/이적 - 거짓말 거짓말 거짓말.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/이적 - 김동률 - 거위의꿈.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/이적 - 패닉 - 04-눈 녹듯.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/이적 - 패닉 - 05-길을 내.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/이적 - 패닉 - 06-왼손잡이.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/이적 - 패닉 - 08-기다리다.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/이적 - 패닉 - 09-정류장.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/산너머남촌에는-박재란.mid.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/삼바의여인-설운도.mid.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/서른즈음에.mid.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/서울대 트리오 - 젊은 연인들.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/서유석 - 아름다운 사람.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/소녀시대 - Gee_mp3.MP3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/Gummy - 죽어도 사랑해 (Love You Even If I Die) [Han & Eng].mp4",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/박상규 - 조약돌 (1975).가사..mp4",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/위대한 약속 리아 킴.mp4",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/이적 - 패닉 - 10-로시난테.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/이적 - 하늘을달리다.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/이적-패닉-균열.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/이적-패닉-달팽이.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/이창민 - 01-삼키지마.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/일어나-김광석.mid.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/임재범 - 01-빈잔 (남진).mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/임재범 - 02-너를 위해.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/임재범 - 07-여러분 (윤복희).mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/임재범 - 이 또한 지나 가리라.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/임창정 - 소주한잔.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/임형주 - Over The Rainbow.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/장기하와 얼굴들 - TV를 봤네.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/장기하와 얼굴들 - 그렇고 그런 사이.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/장기하와 얼굴들 - 깊은밤 전화번호부.MP3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/장기하와 얼굴들 - 마냥 걷는다.MP3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/장기하와 얼굴들 - 별일없이 산다.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/장사익 - 각설이타령.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/장사익 - 나 그대에게 모두 드리리.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/장사익 - 뜨거운 침묵 - YouTube (360p).mp4",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/장사익 - 빛과 그림자.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/장사익 - 사노라면.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/장사익 - 사의 찬미-전명신(국악가요).mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/장사익 - 어디로갈꺼나.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/장사익 - 어머니 꽃구경 2008 (HQ audio) - YouTube (360p).mp4",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/장사익 - 이풍진 세상.MP3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/장사익 - 장사익 본인 찔레꽃.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/정인 & 개리 - 사람냄새.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/정훈희 - 그 사람 바보야 (정훈희).Mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/조관우 - 님은 먼곳에.mid.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/조동진 - 행복한 사람.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/조성모-아시나요.mid.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/조약돌.mp4",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/조용필 - 단발머리.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/조용필 - 여행을떠나요.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/조용필 - 창밖의 여자.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/조용필 - 킬리만자로의표범.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/조용필 - 한오백년.MP3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/주병선 - 칠갑산.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/주현미 - 비내리는 영동교.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/즐거운인생 02 터질거야 (Ver.3) - 활화산.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/즐거운인생 03 오래된 친구들.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/즐거운인생 04 그런 그런 아침.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/즐거운인생 06 친구의 죽음.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/즐거운인생 08 Come Back ! 활화산 !.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/즐거운인생 09 Harmonica.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/즐거운인생 11 다시 GO !.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/즐거운인생 12 한동안 뜸했었지 - 활화산.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/즐거운인생 13 불놀이야 - 활화산.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/즐거운인생 14 친구의 기타.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/즐거운인생 15 삶의 무게.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/즐거운인생 16 Acapella.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/즐거운인생 17 영원한 친구 - String Ver..mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/즐거운인생 18 활화산 조개구이.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/즐거운인생 20 즐거운 인생 (for Film) - 활화산.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/즐거운인생 21 삶의 끝까지 - String Ver..mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/즐거운인생 22 Whistle.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/창밖의 여자 - 조용필.mid.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/챔피언-싸이.mid.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/체리필터 - 낭만고양이.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/체리필터 - 오리날다.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/최희준 - 나는곰이다.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/최희준 - 진고개 신사.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/최희준 - 하숙생.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/친구여.mid.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/코스모스피어있는길-김상희.mid.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/콰이강의다리.mid.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/쿵따리샤바라.mid.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/크라잉넛 - 독립군가.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/크라잉넛 - 말달리자.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/크라잉넛 - 밤이깊었네.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/크라잉넛 - 사노라면.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/크라잉넛 - 신기한노래.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/크라잉넛 - 좋지아니한가-jenny3408.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/킬리만자로의표범-조용필.mid.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/투빅-플라스틱 신드롬 (남극신사 펭귄맨).mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/투에이엠 - 죽어도 못 보내.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/트윈폴리오 - 긴머리 소녀.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/트윈폴리오 - 조개껍질 묶어.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/트윈폴리오 - 하얀나비.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/포미닛.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/플라스틱신드롬-김종서.mid.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/한경애 - 옛시인의 노래.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/한대수 - 행복의 나라로.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/한오백년.mid.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/해변으로가요-키보이스.mid.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/해변의 여인 - 쿨.mid.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/혜은이 - 진짜진짜 좋아해.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/휘성 - 안되나요.mp3",
+				"https://ahnssi9web.github.io/AHNSONG/내음악/흥보가 기가막혀 - 육각수.mid.mp3"
+			
+		];
+		
+
+		// Get the audio element
+		var music_player = document.querySelector("#music_list audio");
+
+		// function for moving to next audio file
+		function ahnnext() {
+			// Check for last audio file in the playlist
+			if (ahnno === files.length - 1) {
+				ahnno= 0;
+			} else {
+				ahnno++;
+			}
+
+			// Change the audio element source
+			// music_player.src = files[i];
+			music_player.src = files[ahnno];
+			
+  files[ahnno];
+		}
+
+		// Check if the player is selected
+		if (music_player === null) {
+			throw "Playlist Player does not exists ...";
+		} else {
+			// Start the player
+			// music_player.src = files[i];
+			music_player.src = files[ahnno];
+			
+			// Listen for the music ended event, to play the next audio file
+			music_player.addEventListener('ended', ahnnext, false)
+		}
+
+	};	
+</script>
+
+</body>
+</html>
